@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InkSlot Design System Preview</title>
+  <!-- Google Fonts for brand consistency -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/design-system.css">
+  <style>
+    /* Preview Showcase Layout Specifics */
+    .showcase-header {
+      padding: var(--space-12) 0 var(--space-8);
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: var(--space-12);
+    }
+    .showcase-title {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-2);
+    }
+    .showcase-subtitle {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+      max-width: 600px;
+    }
+    .section-title {
+      font-size: var(--text-2xl);
+      margin: var(--space-12) 0 var(--space-6);
+      padding-bottom: var(--space-2);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .token-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+    .token-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+    }
+    .color-swatch {
+      height: 80px;
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-3);
+      border: 1px solid var(--border-color);
+    }
+    .token-name {
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .token-value {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+    }
+    .component-row {
+      display: grid;
+      gap: var(--space-8);
+      margin-bottom: var(--space-12);
+    }
+    @media (min-width: 992px) {
+      .component-row {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Theme Toggle Bar -->
+    <div class="theme-toggle-container">
+      <div class="theme-toggle" role="radiogroup" aria-label="Theme selection">
+        <button id="theme-light" data-theme="light" class="active">Light</button>
+        <button id="theme-dark" data-theme="dark">Dark</button>
+        <button id="theme-system" data-theme="system">System</button>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="showcase-header">
+      <h1 class="showcase-title">InkSlot Design System</h1>
+      <p class="showcase-subtitle">Design tokens and primary web components built on InkSlot's brand guidelines: Warm Organic aesthetic optimized for indie tattoo artists.</p>
+    </header>
+
+    <!-- Color Tokens -->
+    <section>
+      <h2 class="section-title">Color Tokens</h2>
+      <div class="token-grid">
+        <div class="token-card">
+          <div class="color-swatch" style="background: var(--bg-primary);"></div>
+          <div class="token-name">Primary Background</div>
+          <div class="token-value">--bg-primary</div>
+        </div>
+        <div class="token-card">
+          <div class="color-swatch" style="background: var(--bg-secondary);"></div>
+          <div class="token-name">Secondary Background</div>
+          <div class="token-value">--bg-secondary</div>
+        </div>
+        <div class="token-card">
+          <div class="color-swatch" style="background: var(--text-primary);"></div>
+          <div class="token-name">Primary Text</div>
+          <div class="token-value">--text-primary</div>
+        </div>
+        <div class="token-card">
+          <div class="color-swatch" style="background: var(--accent);"></div>
+          <div class="token-name">Accent (Terracotta)</div>
+          <div class="token-value">--accent</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Component Showcase -->
+    <section>
+      <h2 class="section-title">Core Web Components</h2>
+      
+      <div class="component-row">
+        <!-- Left: Booking Experience (Artist Card & Slots) -->
+        <div class="grid">
+          <div class="artist-card">
+            <!-- Representing a tattoo artist card -->
+            <div style="background: #E5DDD3; height: 240px; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); color: var(--text-muted); font-size: var(--text-xl);">
+              Artist Portfolio Piece Preview
+            </div>
+            <div class="artist-card-content">
+              <div class="artist-card-header">
+                <h3 class="artist-name">Elena Rose</h3>
+                <span class="btn btn-secondary" style="padding: var(--space-1) var(--space-3); font-size: var(--text-xs);">Fine Line</span>
+              </div>
+              <p class="artist-specialty">Specializing in delicate botanical illustrative blackwork. Over 8 years of custom tattooing in Brooklyn.</p>
+              
+              <!-- Slot Picker Component -->
+              <div class="slot-picker" style="margin-top: var(--space-6);">
+                <div class="slot-picker-title">Select an available time slot for June 9, 2026</div>
+                <div class="slots-grid">
+                  <button class="slot-btn">10:00 AM</button>
+                  <button class="slot-btn active">1:00 PM</button>
+                  <button class="slot-btn">3:30 PM</button>
+                  <button class="slot-btn" disabled>6:00 PM</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Actions, Deposit Info, Buttons -->
+        <div class="grid" style="align-content: start;">
+          <div class="deposit-banner">
+            <div class="deposit-banner-text">
+              <h4>Deposit Required</h4>
+              <p>Secure booking with a deposit that goes directly toward your final ink price.</p>
+            </div>
+            <button class="btn btn-primary" onclick="alert('Proceeding to secure stripe-powered booking deposit')">Pay Deposit</button>
+          </div>
+
+          <div style="background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-color); padding: var(--space-6); margin-top: var(--space-6);">
+            <h3 style="font-family: var(--font-heading); margin-bottom: var(--space-4);">Scheduling Guarantee</h3>
+            <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-6);">
+              Indie artists have full calendar control. Rescheduling is available up to 48 hours before your booking with automatic deposit preservation.
+            </p>
+            <div style="display: flex; gap: var(--space-3);">
+              <button class="btn btn-primary" style="flex: 1;" onclick="alert('Slot confirmed!')">Confirm Booking</button>
+              <button class="btn btn-secondary">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Theme Manager Javascript -->
+  <script>
+    class ThemeManager {
+      constructor() {
+        this.currentTheme = this.getStoredTheme() || this.getSystemTheme();
+        this.applyTheme(this.currentTheme);
+        this.initializeToggle();
+      }
+
+      getSystemTheme() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      getStoredTheme() {
+        return localStorage.getItem('theme');
+      }
+
+      applyTheme(theme) {
+        if (theme === 'system') {
+          document.documentElement.removeAttribute('data-theme');
+          const systemTheme = this.getSystemTheme();
+          document.documentElement.setAttribute('data-theme', systemTheme);
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+        localStorage.setItem('theme', theme);
+        this.currentTheme = theme;
+        this.updateToggleUI();
+      }
+
+      initializeToggle() {
+        const toggleContainer = document.querySelector('.theme-toggle');
+        if (toggleContainer) {
+          toggleContainer.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON') {
+              const theme = e.target.getAttribute('data-theme');
+              this.applyTheme(theme);
+            }
+          });
+        }
+      }
+
+      updateToggleUI() {
+        const buttons = document.querySelectorAll('.theme-toggle button');
+        buttons.forEach(button => {
+          if (button.getAttribute('data-theme') === this.currentTheme) {
+            button.classList.add('active');
+          } else {
+            button.classList.remove('active');
+          }
+        });
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      new ThemeManager();
+    });
+  </script>
+</body>
+</html>
