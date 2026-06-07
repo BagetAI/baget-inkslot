@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InkSlot Artist Dashboard - New Booking Confirmed</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#FAF6F1',
+              text: '#3D2B1F',
+              accent: '#C4654A',
+              accentHover: '#B05339',
+              muted: '#7A6453',
+              card: '#FFFFFF',
+              border: '#E8DFD5',
+              success: '#4A7C59'
+            }
+          },
+          fontFamily: {
+            serif: ['"DM Serif Display"', 'serif'],
+            sans: ['Nunito', 'system-ui', 'sans-serif'],
+          },
+          borderRadius: {
+            'brand': '24px',
+          },
+          boxShadow: {
+            'brand': '0 10px 30px -10px rgba(61, 43, 31, 0.08)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FAF6F1;
+      color: #3D2B1F;
+      font-family: 'Nunito', system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-2xl mx-auto">
+    
+    <!-- Navigation / Header -->
+    <header class="flex justify-between items-center mb-8 pb-6 border-b border-brand-border">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-white font-serif text-xl font-bold">
+          I
+        </div>
+        <div>
+          <span class="font-serif text-xl font-bold tracking-tight text-brand-text">InkSlot</span>
+          <span class="text-xs block text-brand-muted font-medium">Artist Portal</span>
+        </div>
+      </div>
+      <a href="#back" onclick="alert('Navigating to dashboard...')" class="text-sm font-semibold text-brand-muted hover:text-brand-text transition-colors">
+        Back to Calendar
+      </a>
+    </header>
+
+    <!-- Success Banner -->
+    <div class="mb-6 p-4 bg-brand-success/10 border border-brand-success/20 rounded-brand flex items-start gap-3">
+      <div class="w-6 h-6 rounded-full bg-brand-success flex items-center justify-center text-white shrink-0 text-sm font-bold mt-0.5">
+        ✓
+      </div>
+      <div>
+        <h2 class="font-bold text-brand-text">Booking Confirmed & Deposit Secured</h2>
+        <p class="text-sm text-brand-muted">A deposit of $150.00 has been processed and transferred to your connected balance.</p>
+      </div>
+    </div>
+
+    <!-- Main Content Card -->
+    <main class="bg-white rounded-brand border border-brand-border shadow-brand p-6 sm:p-8 space-y-8">
+      
+      <!-- Booking Summary Header -->
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 border-b border-brand-border">
+        <div>
+          <span class="text-xs uppercase tracking-wider font-bold text-brand-accent">New Session Booked</span>
+          <h1 class="font-serif text-3xl text-brand-text mt-1">Marcus Vance</h1>
+          <p class="text-sm text-brand-muted">marcus.vance@email.com &bull; +1 (555) 234-5678</p>
+        </div>
+        <div class="text-left sm:text-right">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-brand-success/10 text-brand-success border border-brand-success/20">
+            Confirmed
+          </span>
+          <p class="text-xs text-brand-muted mt-2">Booked on June 7, 2026</p>
+        </div>
+      </div>
+
+      <!-- Detail Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-xs uppercase tracking-wider font-bold text-brand-muted mb-2">Date & Time</h3>
+          <p class="font-serif text-lg text-brand-text">Thursday, July 16, 2026</p>
+          <p class="text-sm text-brand-muted">1:00 PM - 5:00 PM (4 Hours)</p>
+        </div>
+        <div>
+          <h3 class="text-xs uppercase tracking-wider font-bold text-brand-muted mb-2">Location</h3>
+          <p class="font-serif text-lg text-brand-text">Sacred Dagger Studio</p>
+          <p class="text-sm text-brand-muted">Booth 3 &bull; Los Angeles, CA</p>
+        </div>
+      </div>
+
+      <!-- Financials Card -->
+      <div class="bg-brand-bg rounded-2xl p-4 border border-brand-border space-y-3">
+        <div class="flex justify-between text-sm">
+          <span class="text-brand-muted">Session Estimate (4 hrs @ $150/hr)</span>
+          <span class="font-semibold text-brand-text">$600.00</span>
+        </div>
+        <div class="flex justify-between text-sm">
+          <span class="text-brand-muted">Secure Deposit Paid</span>
+          <span class="font-semibold text-brand-success">-$150.00</span>
+        </div>
+        <div class="flex justify-between items-center pt-3 border-t border-brand-border">
+          <span class="font-bold text-brand-text">Remaining Balance due on day of session</span>
+          <span class="font-serif text-xl font-bold text-brand-text">$450.00</span>
+        </div>
+      </div>
+
+      <!-- Design Brief & Placement -->
+      <div class="space-y-4">
+        <h3 class="text-xs uppercase tracking-wider font-bold text-brand-muted">Design Brief & Client Notes</h3>
+        
+        <div class="grid grid-cols-2 gap-4 text-sm">
+          <div>
+            <span class="block text-brand-muted text-xs">Placement</span>
+            <span class="font-semibold text-brand-text">Right Forearm (Outer)</span>
+          </div>
+          <div>
+            <span class="block text-brand-muted text-xs">Approximate Size</span>
+            <span class="font-semibold text-brand-text">6" x 4"</span>
+          </div>
+          <div>
+            <span class="block text-brand-muted text-xs">Style</span>
+            <span class="font-semibold text-brand-text">Neo-Traditional, Black & Grey</span>
+          </div>
+          <div>
+            <span class="block text-brand-muted text-xs">Color Scheme</span>
+            <span class="font-semibold text-brand-text">Strictly Black & Grey (No color)</span>
+          </div>
+        </div>
+
+        <div class="p-4 bg-brand-bg/50 rounded-2xl border border-brand-border text-sm text-brand-text italic">
+          "I'd love an anatomical heart wrapped in thorny vines. Looking for bold linework and deep shading. I uploaded a rough reference sketch of the general layout I prefer."
+        </div>
+
+        <!-- Reference Image Placeholder -->
+        <div class="border border-brand-border rounded-2xl p-4 flex items-center justify-between bg-brand-card">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-lg bg-brand-bg flex items-center justify-center border border-brand-border shrink-0">
+              <svg class="w-6 h-6 text-brand-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <span class="text-sm font-semibold block text-brand-text">anatomical_heart_ref.jpg</span>
+              <span class="text-xs text-brand-muted">1.4 MB</span>
+            </div>
+          </div>
+          <button onclick="alert('Downloading reference file...')" class="text-xs font-bold text-brand-accent hover:text-brand-accentHover transition-colors px-3 py-1.5 border border-brand-accent/20 rounded-full hover:bg-brand-accent/5">
+            View Image
+          </button>
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div class="pt-6 border-t border-brand-border flex flex-col sm:flex-row gap-3">
+        <button onclick="alert('Opening chat with Marcus...')" class="flex-1 py-3 px-4 bg-brand-text hover:bg-brand-text/90 text-white font-semibold rounded-full transition-colors text-center text-sm">
+          Message Marcus
+        </button>
+        <button onclick="alert('Opening stencil workspace...')" class="flex-1 py-3 px-4 bg-brand-accent hover:bg-brand-accentHover text-white font-semibold rounded-full transition-colors text-center text-sm">
+          Create Stencil Workspace
+        </button>
+        <button onclick="alert('Rescheduling options opened...')" class="py-3 px-4 bg-transparent hover:bg-brand-bg border border-brand-border text-brand-muted hover:text-brand-text font-semibold rounded-full transition-colors text-center text-sm">
+          Reschedule
+        </button>
+      </div>
+
+    </main>
+
+    <!-- Helpful Tip -->
+    <footer class="mt-6 text-center text-xs text-brand-muted">
+      Need to update your availability? Go to <a href="#settings" class="underline hover:text-brand-text">Calendar Settings</a>.
+    </footer>
+
+  </div>
+</body>
+</html>
