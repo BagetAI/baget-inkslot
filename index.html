@@ -1,235 +1,268 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InkSlot Design System Preview</title>
-  <!-- Google Fonts for brand consistency -->
+  <title>InkSlot | Booking, Deposits & Portfolios for Indie Tattoo Artists</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/design-system.css">
-  <style>
-    /* Preview Showcase Layout Specifics */
-    .showcase-header {
-      padding: var(--space-12) 0 var(--space-8);
-      border-bottom: 1px solid var(--border-color);
-      margin-bottom: var(--space-12);
-    }
-    .showcase-title {
-      font-size: var(--text-3xl);
-      margin-bottom: var(--space-2);
-    }
-    .showcase-subtitle {
-      font-size: var(--text-lg);
-      color: var(--text-secondary);
-      max-width: 600px;
-    }
-    .section-title {
-      font-size: var(--text-2xl);
-      margin: var(--space-12) 0 var(--space-6);
-      padding-bottom: var(--space-2);
-      border-bottom: 1px solid var(--border-color);
-    }
-    .token-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: var(--space-4);
-      margin-bottom: var(--space-8);
-    }
-    .token-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: var(--space-4);
-    }
-    .color-swatch {
-      height: 80px;
-      border-radius: var(--radius-sm);
-      margin-bottom: var(--space-3);
-      border: 1px solid var(--border-color);
-    }
-    .token-name {
-      font-size: var(--text-sm);
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-    .token-value {
-      font-size: var(--text-xs);
-      color: var(--text-muted);
-    }
-    .component-row {
-      display: grid;
-      gap: var(--space-8);
-      margin-bottom: var(--space-12);
-    }
-    @media (min-width: 992px) {
-      .component-row {
-        grid-template-columns: 1.2fr 0.8fr;
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#0F0F11',
+              card: '#16161A',
+              border: '#2A2A32',
+              text: '#F4F4F6',
+              textMuted: '#94A3B8',
+              accent: '#A855F7',
+              accentHover: '#9333EA'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Sora', 'sans-serif']
+          }
+        }
       }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0F0F11;
+      color: #F4F4F6;
+      font-family: 'Inter', sans-serif;
+    }
+    .text-heading {
+      font-family: 'Sora', sans-serif;
     }
   </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
 
-  <div class="container">
-    <!-- Theme Toggle Bar -->
-    <div class="theme-toggle-container">
-      <div class="theme-toggle" role="radiogroup" aria-label="Theme selection">
-        <button id="theme-light" data-theme="light" class="active">Light</button>
-        <button id="theme-dark" data-theme="dark">Dark</button>
-        <button id="theme-system" data-theme="system">System</button>
+  <!-- Header -->
+  <header class="w-full border-b border-brand-border bg-brand-bg/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-accent flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.4)]">
+          <span class="text-heading text-xl font-bold text-black">I</span>
+        </div>
+        <span class="text-heading text-xl font-extrabold tracking-tight">Ink<span class="text-brand-accent">Slot</span></span>
+      </div>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-textMuted">
+        <a href="#features" class="hover:text-brand-text transition-colors">Features</a>
+        <a href="#pricing" class="hover:text-brand-text transition-colors">Pricing</a>
+        <a href="#demo" class="hover:text-brand-text transition-colors">Interactive Demo</a>
+      </nav>
+      <div>
+        <a href="#claim-form" class="inline-flex items-center justify-center px-5 h-11 rounded-lg bg-brand-accent text-brand-bg font-semibold text-sm hover:bg-brand-accentHover transition-all shadow-[0_4px_20px_rgba(168,85,247,0.3)] hover:-translate-y-0.5">
+          Get Early Access
+        </a>
       </div>
     </div>
+  </header>
 
-    <!-- Header -->
-    <header class="showcase-header">
-      <h1 class="showcase-title">InkSlot Design System</h1>
-      <p class="showcase-subtitle">Design tokens and primary web components built on InkSlot's brand guidelines: Warm Organic aesthetic optimized for indie tattoo artists.</p>
-    </header>
+  <!-- Hero Section -->
+  <main class="flex-grow flex items-center justify-center py-12 md:py-20 lg:py-28 relative">
+    <!-- Gradient Glow Backgrounds -->
+    <div class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[450px] h-[450px] bg-brand-accent/5 rounded-full blur-[150px] pointer-events-none"></div>
 
-    <!-- Color Tokens -->
-    <section>
-      <h2 class="section-title">Color Tokens</h2>
-      <div class="token-grid">
-        <div class="token-card">
-          <div class="color-swatch" style="background: var(--bg-primary);"></div>
-          <div class="token-name">Primary Background</div>
-          <div class="token-value">--bg-primary</div>
-        </div>
-        <div class="token-card">
-          <div class="color-swatch" style="background: var(--bg-secondary);"></div>
-          <div class="token-name">Secondary Background</div>
-          <div class="token-value">--bg-secondary</div>
-        </div>
-        <div class="token-card">
-          <div class="color-swatch" style="background: var(--text-primary);"></div>
-          <div class="token-name">Primary Text</div>
-          <div class="token-value">--text-primary</div>
-        </div>
-        <div class="token-card">
-          <div class="color-swatch" style="background: var(--accent);"></div>
-          <div class="token-name">Accent (Terracotta)</div>
-          <div class="token-value">--accent</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Live Component Showcase -->
-    <section>
-      <h2 class="section-title">Core Web Components</h2>
+    <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       
-      <div class="component-row">
-        <!-- Left: Booking Experience (Artist Card & Slots) -->
-        <div class="grid">
-          <div class="artist-card">
-            <!-- Representing a tattoo artist card -->
-            <div style="background: #E5DDD3; height: 240px; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); color: var(--text-muted); font-size: var(--text-xl);">
-              Artist Portfolio Piece Preview
+      <!-- Left Content Column -->
+      <div class="lg:col-span-7 flex flex-col justify-center text-left space-y-8">
+        
+        <!-- Badge -->
+        <div class="inline-flex items-center self-start gap-2 px-3 py-1.5 rounded-full border border-brand-border bg-brand-card/50 text-xs font-medium text-brand-textMuted">
+          <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+          Now booking for Cohort 2 independent artists
+        </div>
+
+        <!-- Headline -->
+        <div class="space-y-4">
+          <h1 class="text-heading text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1] text-brand-text">
+            Your art. <br class="hidden sm:inline" />
+            Your terms. <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-purple-400">
+              One link to book.
+            </span>
+          </h1>
+          <p class="text-base sm:text-lg md:text-xl text-brand-textMuted max-w-xl leading-relaxed">
+            Stop chasing deposits in DMs and hunting down schedules. InkSlot gives indie tattoo artists a unified portfolio, upfront deposit collection, and frictionless scheduling built for your craft.
+          </p>
+        </div>
+
+        <!-- Action Area (Form Input with Live Handler) -->
+        <div id="claim-form" class="max-w-md w-full bg-brand-card border border-brand-border p-2.5 rounded-2xl flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 shadow-2xl">
+          <div class="flex-grow flex items-center px-3 gap-2 border border-transparent focus-within:border-brand-border rounded-xl">
+            <span class="text-brand-textMuted text-sm font-medium select-none">inkslot.com/</span>
+            <input 
+              id="artist-handle"
+              type="text" 
+              placeholder="yourname" 
+              class="w-full bg-transparent text-brand-text placeholder-brand-textMuted/50 text-sm focus:outline-none py-2 font-medium"
+              oninput="updatePreview(this.value)"
+            />
+          </div>
+          <button 
+            type="button"
+            onclick="handleClaim()"
+            class="h-12 px-6 rounded-xl bg-brand-accent text-brand-bg font-bold text-sm hover:bg-brand-accentHover transition-all flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(168,85,247,0.25)]"
+          >
+            Claim Your Slot
+          </button>
+        </div>
+
+        <!-- Dynamic Success Toast / Preview -->
+        <div id="preview-output" class="text-xs text-brand-textMuted h-4 font-medium transition-opacity duration-300 opacity-0">
+          Your booking page: <span class="text-brand-accent" id="preview-slug">inkslot.com/yourname</span>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="pt-6 border-t border-brand-border/60">
+          <p class="text-xs uppercase tracking-wider text-brand-textMuted font-bold mb-4">Engineered for top-tier resident & traveling artists</p>
+          <div class="grid grid-cols-3 gap-6 text-left">
+            <div>
+              <p class="text-heading text-2xl font-bold text-brand-text">100%</p>
+              <p class="text-xs text-brand-textMuted">Deposit Protection</p>
             </div>
-            <div class="artist-card-content">
-              <div class="artist-card-header">
-                <h3 class="artist-name">Elena Rose</h3>
-                <span class="btn btn-secondary" style="padding: var(--space-1) var(--space-3); font-size: var(--text-xs);">Fine Line</span>
-              </div>
-              <p class="artist-specialty">Specializing in delicate botanical illustrative blackwork. Over 8 years of custom tattooing in Brooklyn.</p>
-              
-              <!-- Slot Picker Component -->
-              <div class="slot-picker" style="margin-top: var(--space-6);">
-                <div class="slot-picker-title">Select an available time slot for June 9, 2026</div>
-                <div class="slots-grid">
-                  <button class="slot-btn">10:00 AM</button>
-                  <button class="slot-btn active">1:00 PM</button>
-                  <button class="slot-btn">3:30 PM</button>
-                  <button class="slot-btn" disabled>6:00 PM</button>
-                </div>
-              </div>
+            <div>
+              <p class="text-heading text-2xl font-bold text-brand-text">0%</p>
+              <p class="text-xs text-brand-textMuted">No-Show Friction</p>
+            </div>
+            <div>
+              <p class="text-heading text-2xl font-bold text-brand-text">2.4 Hours</p>
+              <p class="text-xs text-brand-textMuted">Saved per Week</p>
             </div>
           </div>
         </div>
 
-        <!-- Right: Actions, Deposit Info, Buttons -->
-        <div class="grid" style="align-content: start;">
-          <div class="deposit-banner">
-            <div class="deposit-banner-text">
-              <h4>Deposit Required</h4>
-              <p>Secure booking with a deposit that goes directly toward your final ink price.</p>
-            </div>
-            <button class="btn btn-primary" onclick="alert('Proceeding to secure stripe-powered booking deposit')">Pay Deposit</button>
-          </div>
+      </div>
 
-          <div style="background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-color); padding: var(--space-6); margin-top: var(--space-6);">
-            <h3 style="font-family: var(--font-heading); margin-bottom: var(--space-4);">Scheduling Guarantee</h3>
-            <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-6);">
-              Indie artists have full calendar control. Rescheduling is available up to 48 hours before your booking with automatic deposit preservation.
-            </p>
-            <div style="display: flex; gap: var(--space-3);">
-              <button class="btn btn-primary" style="flex: 1;" onclick="alert('Slot confirmed!')">Confirm Booking</button>
-              <button class="btn btn-secondary">Learn More</button>
+      <!-- Right Graphic Showcase Column -->
+      <div class="lg:col-span-5 relative flex items-center justify-center">
+        <!-- Floating Glow effect behind mockups -->
+        <div class="absolute -inset-1 bg-gradient-to-r from-brand-accent to-purple-600 rounded-[2rem] blur-2xl opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200"></div>
+        
+        <!-- App Showcase Image Container -->
+        <div class="relative w-full rounded-[2rem] border border-brand-border bg-brand-card p-3 shadow-2xl overflow-hidden group">
+          <div class="aspect-video w-full rounded-2xl overflow-hidden bg-[#121214] relative">
+            <img 
+              src="images/a-sleek-high-end-dark-mode-mobile-app-i.png" 
+              alt="InkSlot App Interface Dashboard showing portfolio booking options, deposit system, and customized schedule" 
+              class="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <!-- Decorative UI Badge Overlay -->
+          <div class="absolute bottom-6 left-6 right-6 bg-brand-bg/95 backdrop-blur-md border border-brand-border p-4 rounded-xl flex items-center justify-between shadow-xl">
+            <div class="flex items-center gap-3">
+              <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
+              <div>
+                <p class="text-xs font-bold text-brand-text">Deposit Guaranteed</p>
+                <p class="text-[10px] text-brand-textMuted">Payout ready within minutes of booking</p>
+              </div>
             </div>
+            <span class="text-xs font-semibold px-2.5 py-1 rounded bg-brand-accent/10 text-brand-accent border border-brand-accent/20">$50 Deposit</span>
           </div>
         </div>
       </div>
-    </section>
-  </div>
 
-  <!-- Theme Manager Javascript -->
+    </div>
+  </main>
+
+  <!-- Interactive Demo Tool Widget -->
+  <section id="demo" class="border-t border-brand-border py-16 bg-brand-card/30 relative">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-heading text-2xl md:text-3xl font-bold mb-4">Calculate Your Preserved Booking Value</h2>
+      <p class="text-brand-textMuted text-sm md:text-base max-w-lg mx-auto mb-8">
+        No-shows and uncollected deposits drain artist revenue. Drag the slider to see how much InkSlot preserves.
+      </p>
+      
+      <div class="bg-brand-card border border-brand-border rounded-2xl p-6 md:p-8 max-w-2xl mx-auto space-y-6">
+        <div>
+          <label for="booking-slider" class="flex justify-between text-sm font-medium mb-2">
+            <span class="text-brand-textMuted">Average Bookings Per Month</span>
+            <span class="text-brand-accent font-bold" id="booking-count">20 bookings</span>
+          </label>
+          <input 
+            type="range" 
+            id="booking-slider" 
+            min="5" 
+            max="60" 
+            value="20" 
+            class="w-full accent-brand-accent"
+            oninput="calculateSavings(this.value)"
+          />
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 pt-4 border-t border-brand-border/60">
+          <div>
+            <p class="text-[10px] uppercase tracking-wider text-brand-textMuted font-bold">Estimated No-Shows Prevented</p>
+            <p class="text-2xl font-bold text-brand-text mt-1" id="prevented-count">3 bookings</p>
+          </div>
+          <div>
+            <p class="text-[10px] uppercase tracking-wider text-brand-textMuted font-bold">Rescued Revenue (At $100 Deposit)</p>
+            <p class="text-2xl font-bold text-brand-accent mt-1" id="saved-value">$300/mo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-border bg-brand-bg py-8">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-textMuted">
+      <p>&copy; 2026 InkSlot Inc. All rights reserved.</p>
+      <div class="flex items-center gap-6">
+        <a href="#privacy" class="hover:text-brand-text transition-colors">Privacy Policy</a>
+        <a href="#terms" class="hover:text-brand-text transition-colors">Terms of Service</a>
+        <a href="mailto:support@inkslot.com" class="hover:text-brand-text transition-colors">Contact Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactivity Scripts -->
   <script>
-    class ThemeManager {
-      constructor() {
-        this.currentTheme = this.getStoredTheme() || this.getSystemTheme();
-        this.applyTheme(this.currentTheme);
-        this.initializeToggle();
-      }
-
-      getSystemTheme() {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      }
-
-      getStoredTheme() {
-        return localStorage.getItem('theme');
-      }
-
-      applyTheme(theme) {
-        if (theme === 'system') {
-          document.documentElement.removeAttribute('data-theme');
-          const systemTheme = this.getSystemTheme();
-          document.documentElement.setAttribute('data-theme', systemTheme);
-        } else {
-          document.documentElement.setAttribute('data-theme', theme);
-        }
-        localStorage.setItem('theme', theme);
-        this.currentTheme = theme;
-        this.updateToggleUI();
-      }
-
-      initializeToggle() {
-        const toggleContainer = document.querySelector('.theme-toggle');
-        if (toggleContainer) {
-          toggleContainer.addEventListener('click', (e) => {
-            if (e.target.tagName === 'BUTTON') {
-              const theme = e.target.getAttribute('data-theme');
-              this.applyTheme(theme);
-            }
-          });
-        }
-      }
-
-      updateToggleUI() {
-        const buttons = document.querySelectorAll('.theme-toggle button');
-        buttons.forEach(button => {
-          if (button.getAttribute('data-theme') === this.currentTheme) {
-            button.classList.add('active');
-          } else {
-            button.classList.remove('active');
-          }
-        });
+    function updatePreview(val) {
+      const output = document.getElementById('preview-output');
+      const slug = document.getElementById('preview-slug');
+      const cleanVal = val.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+      
+      if (cleanVal.length > 0) {
+        output.classList.remove('opacity-0');
+        slug.textContent = `inkslot.com/${cleanVal}`;
+      } else {
+        output.classList.add('opacity-0');
       }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      new ThemeManager();
-    });
+    function handleClaim() {
+      const input = document.getElementById('artist-handle');
+      const handle = input.value.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+      if (handle.length === 0) {
+        alert('Please enter a custom artist handle to claim your slot.');
+        return;
+      }
+      alert(`Success! "${handle}" has been reserved for InkSlot Cohort 2. We will contact you with booking setup instructions!`);
+    }
+
+    function calculateSavings(val) {
+      document.getElementById('booking-count').textContent = `${val} bookings`;
+      // Assume typical indie artist experiences ~15% drop-off/no-show rate without structured deposits.
+      const prevented = Math.round(val * 0.15);
+      // Assume typical standard booking deposit is $100.
+      const saved = prevented * 100;
+      
+      document.getElementById('prevented-count').textContent = `${prevented} bookings`;
+      document.getElementById('saved-value').textContent = `$${saved}/mo`;
+    }
   </script>
 </body>
 </html>
